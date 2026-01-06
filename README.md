@@ -59,7 +59,8 @@ Install using the official **bench** CLI:
 cd $PATH_TO_YOUR_BENCH
 bench get-app https://github.com/SamiHajbi/ERPNEXT-JORDAN-E-Invoicing
 bench install-app jofotara
----
+```bash
+
 ## Upgrade
 
 To update the application safely:
@@ -70,7 +71,7 @@ git pull
 bench migrate
 bench build
 bench restart
----
+```bash
 
 ## Development & Contribution
 
@@ -79,7 +80,8 @@ This project uses pre-commit for code quality and formatting.
 ```bash
 cd apps/jofotara
 pre-commit install
----
+```bash
+
 
 Tools Used
 
