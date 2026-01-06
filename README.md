@@ -1,68 +1,120 @@
-# JoFotara
+# JoFotara – ERPNext Jordan E-Invoicing Integration
 
-## ERPNEXT Integration with Jordanian Tax Authority
+JoFotara is a production-ready ERPNext application that integrates ERPNext with the **Jordanian Tax Authority (JoFotara)** electronic invoicing system.  
+The app adds all required fields, validations, and integration logic needed to comply with Jordanian e-invoicing regulations while remaining fully upgrade-safe.
 
-JoFotara is an ERPNext application that integrates with the Jordanian Tax Authority's electronic invoicing system. This app adds the necessary fields and functionality to ERPNext to support compliance with Jordanian tax regulations.
+---
 
-## Features
+## Project Naming & Identity
 
-- **Company Configuration**: Adds a dedicated JoFotara tab in the Company DocType with fields for configuring the integration with the Jordanian Tax Authority.
-- **Integration Settings**: Provides fields for Client ID, Secret Key, Device ID, API Endpoint, and Sandbox Mode configuration.
-- **Easy Setup**: All customizations are contained within the app and applied automatically during installation.
+- **ERPNext App Name:** `jofotara`
+- **Repository Name:** ERPNext Jordan E-Invoicing
+- **Tax Authority System:** JoFotara (Jordanian Tax Authority)
 
-## Customizations
+> The internal app name **remains `jofotara`** by design.  
+> This ensures upgrade safety, backward compatibility, and prevents breaking existing ERPNext installations.
 
-This app adds the following customizations to ERPNext:
+Changing the repository URL **does NOT** change:
+- App name inside ERPNext
+- Database tables
+- Installed sites
+- Existing configurations
 
-1. **Company DocType**:
-   - Adds a new tab labeled "JoFotara" after the "Stock and Manufacturing" tab
-   - Adds a section titled "JoFotara Settings" with the following fields:
-     - Enable JoFotara Integration (Check)
-     - Client ID (Data)
-     - Secret Key (Password)
-     - Device ID (Data)
-     - API Endpoint (Data)
-     - Is Sandbox Mode? (Check)
+---
+
+## Key Features
+
+- Jordanian E-Invoicing (JoFotara) compliance
+- UBL 2.1 XML generation & validation
+- Secure API authentication
+- Multi-company support
+- Sandbox & Production modes
+- Upgrade-safe (no core overrides)
+- ERPNext-native validations and workflows
+
+---
+
+## Customizations Added
+
+### Company DocType
+
+Adds a dedicated **JoFotara** tab containing:
+
+- Enable JoFotara Integration
+- Client ID
+- Secret Key (encrypted)
+- Device ID
+- API Endpoint
+- Sandbox Mode
+
+All settings are **company-specific**.
+
+---
 
 ## Installation
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+Install using the official **bench** CLI:
 
 ```bash
 cd $PATH_TO_YOUR_BENCH
-bench get-app https://github.com/YOUR_USERNAME/jofotara
+bench get-app https://github.com/SamiHajbi/ERPNEXT-JORDAN-E-Invoicing
 bench install-app jofotara
-```
 
-After installation, the JoFotara tab will be available in the Company form.
+## Upgrade
 
-### Contributing
+To update the application safely:
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+cd apps/jofotara
+git pull
+bench migrate
+bench build
+bench restart
 
-```bash
+## Development & Contribution
+
+This project uses pre-commit for code quality and formatting.
+
 cd apps/jofotara
 pre-commit install
-```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+Tools Used
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+ruff
 
-### CI
+eslint
 
-This app can use GitHub Actions for CI. The following workflows are configured:
+prettier
 
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+pyupgrade
 
-### For Support
-Contact US Info@Decart.net or 00962792000160
+CI / Automation
 
+GitHub Actions workflows included:
 
-### License
+Continuous Integration (installation + tests)
 
-mit
+Security & quality checks using:
+
+Frappe Semgrep Rules
+
+pip-audit
+
+## Support & Contact
+
+For technical support, implementation assistance, or enterprise deployment:
+
+📧 Email: Info@Decart.net
+
+📞 Phone / WhatsApp: +962 7 9200 0160
+
+Support provided by Decart International.
+
+## License
+
+MIT License
+
+Disclaimer
+
+This application is an integration tool only.
+It does not replace official compliance responsibility with the Jordanian Tax Authority.
+Users must ensure adherence to all JoFotara laws, regulations, and updates.
