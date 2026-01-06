@@ -59,31 +59,40 @@ Install using the official **bench** CLI:
 cd $PATH_TO_YOUR_BENCH
 bench get-app https://github.com/SamiHajbi/ERPNEXT-JORDAN-E-Invoicing
 bench install-app jofotara
+```
+
+---
+
+## Update / Upgrade
+
+To safely update the application:
 ```bash
-
-## Upgrade
-
-To update the application safely:
-
-```bash
+cd $PATH_TO_YOUR_BENCH
 cd apps/jofotara
 git pull
 bench migrate
 bench build
 bench restart
-```bash
+```
+Production Notes
+
+Always take a database backup before updating
+
+Recommended to update during off-peak hours
+
+
+Ensure all sites migrate successfully in multi-site environments
+
 
 ## Development & Contribution
-
 This project uses pre-commit for code quality and formatting.
 
 ```bash
 cd apps/jofotara
 pre-commit install
-```bash
+```
 
-
-Tools Used
+# Tools Used
 
 ruff
 
@@ -97,7 +106,7 @@ CI / Automation
 
 GitHub Actions workflows included:
 
-Continuous Integration (installation + tests)
+Continuous Integration (install + tests)
 
 Security & quality checks using:
 
@@ -119,8 +128,9 @@ Support provided by Decart International.
 
 MIT License
 
-Disclaimer
+## Disclaimer
 
 This application is an integration tool only.
 It does not replace official compliance responsibility with the Jordanian Tax Authority.
+
 Users must ensure adherence to all JoFotara laws, regulations, and updates.
